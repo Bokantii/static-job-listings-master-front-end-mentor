@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Task Management App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      .kanban-board {
+        display: flex;
+        gap: 20px;
+      }
+
+      .column {
+        flex: 1;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      .task {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: grab;
+        user-select: none;
+      }
+
+      .task:hover {
+        background-color: #f0f0f0;
+      }
+
+      .delete-btn {
+        cursor: pointer;
+        color: #d9534f;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kanban-board">
+      <div
+        class="column"
+        id="todo-column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <h2>Todo</h2>
+        <div id="todo-tasks" class="tasks"></div>
+        <input type="text" id="todo-task-text" placeholder="Enter task text" />
+        <button onclick="addTask('todo-column', 'todo-task-text')">
+          Add Task
+        </button>
+      </div>
+
+      <div
+        class="column"
+        id="in-progress-column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <h2>In Progress</h2>
+        <div id="in-progress-tasks" class="tasks"></div>
+        <input
+          type="text"
+          id="in-progress-task-text"
+          placeholder="Enter task text"
+        />
+        <button
+          onclick="addTask('in-progress-column', 'in-progress-task-text')"
+        >
+          Add Task
+        </button>
+      </div>
+
+      <div
+        class="column"
+        id="completed-column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <h2>Completed</h2>
+        <div id="completed-tasks" class="tasks"></div>
+        <input
+          type="text"
+          id="completed-task-text"
+          placeholder="Enter task text"
+        />
+        <button onclick="addTask('completed-column', 'completed-task-text')">
+          Add Task
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let taskIdCounter = 0;
+
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drag(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        const taskId = event.dataTransfer.getData("text");
+        const taskElement = document.getElementById(taskId);
+        const sourceColumnId = taskElement.parentElement.id;
+        const destinationColumnId = event.target.closest(".column").id;
+
+        if (sourceColumnId !== destinationColumnId) {
+          moveTask(taskId, destinationColumnId);
+        }
+      }
+
+      function moveTask(taskId, destinationColumnId) {
+        const destinationColumn = document.getElementById(destinationColumnId);
+        const destinationTasks = destinationColumn.querySelector(".tasks");
+        const taskElement = document.getElementById(taskId);
+
+        taskElement.querySelector(".delete-btn").remove();
+        taskElement.draggable = false;
+
+        destinationTasks.appendChild(taskElement);
+      }
+
+      function deleteTask(taskId) {
+        const taskElement = document.getElementById(taskId);
+        taskElement.remove();
+      }
+
+      function createTaskElement(taskText) {
+        const taskId = `task-${taskIdCounter++}`;
+        const taskElement = document.createElement("div");
+        taskElement.id = taskId;
+        taskElement.className = "task";
+        taskElement.draggable = true;
+        taskElement.setAttribute("draggable", "true");
+        taskElement.textContent = taskText;
+
+        const deleteBtn = document.createElement("span");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.innerHTML = "&times;";
+        deleteBtn.onclick = function () {
+          deleteTask(taskId);
+        };
+
+        taskElement.appendChild(deleteBtn);
+
+        taskElement.addEventListener("dragstart", drag);
+
+        return taskElement;
+      }
+
+      function addTask(columnId, inputId) {
+        const column = document.getElementById(columnId);
+        const tasksContainer = column.querySelector(".tasks");
+        const taskText = document.getElementById(inputId).value.trim();
+
+        if (taskText !== "") {
+          const taskElement = createTaskElement(taskText);
+          tasksContainer.appendChild(taskElement);
+          document.getElementById(inputId).value = ""; // Clear input field
+        }
+      }
+    </script>
+  </body>
+</html>

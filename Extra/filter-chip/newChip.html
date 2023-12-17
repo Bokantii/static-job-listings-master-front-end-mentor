@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .filterDiv {
+        float: left;
+        background-color: #2196f3;
+        color: #ffffff;
+        width: 100px;
+        line-height: 100px;
+        text-align: center;
+        margin: 2px;
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .container {
+        margin-top: 20px;
+        overflow: hidden;
+      }
+
+      /* Style the buttons */
+      .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #ddd;
+      }
+
+      .btn.active {
+        background-color: #666;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Filter DIV Elements</h2>
+
+    <div id="myBtnContainer">
+      <button class="btn active" id="showAll" onclick="filterSelection('all')">
+        Show all
+      </button>
+      <!-- Create buttons dynamically from A to Z -->
+      <!-- You can use a loop to generate these buttons -->
+      <script>
+        for (let i = 65; i <= 90; i++) {
+          const letter = String.fromCharCode(i);
+          document.write(
+            `<button class="btn" id="filter${letter}" onclick="filterSelection('${letter}')">${letter}</button>`
+          );
+        }
+      </script>
+    </div>
+
+    <div class="container">
+      <span data-categories="A">Apple</span>
+      <span data-categories="B">Banana</span>
+      <span data-categories="C">Cherry</span>
+      <!-- Add more spans with data-categories attribute -->
+    </div>
+
+    <script>
+      // Default state: Show all
+      filterSelection("all");
+
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (
+            x[i].getAttribute("data-categories") &&
+            x[i].getAttribute("data-categories").startsWith(c)
+          ) {
+            w3AddClass(x[i], "show");
+          }
+        }
+
+        // Update active button
+        updateActiveButton(document.getElementById(`filter${c}`));
+      }
+
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+          }
+        }
+      }
+
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+
+      function updateActiveButton(clickedBtn) {
+        var current = document.querySelector(".btn.active");
+        if (current) {
+          current.classList.remove("active");
+        }
+        clickedBtn.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

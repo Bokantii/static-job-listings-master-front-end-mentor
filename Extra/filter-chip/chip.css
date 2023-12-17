@@ -1,0 +1,42 @@
+.filter-chip {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-chip:hover {
+  background-color: #0056b3;
+}
+
+.close-btn {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.word-container {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 2px solid #3498db; /* Nice blue color for the border */
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ecf0f1; /* Light gray background color */
+}
+
+span {
+  padding: 5px 10px;
+  border: 1px solid #2ecc71; /* Nice green color for the span borders */
+  border-radius: 5px;
+  background-color: #ecf0f1; /* Light gray background color */
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+}
+
+span:hover {
+  background-color: #d4e6f1; /* Light blue background color on hover */
+}

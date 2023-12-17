@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styleFlex.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Job Listings</title>
+  </head>
+
+  <body>
+    <!-- Item Start -->
+    <div class="bg-header-img">
+      <section class="filterBoard">
+        <!-- <section class="filterChips">
+          <div class="filterChip">
+            <span class="filteredRole">HTML</span>
+            <div class="filteredRoleRemove">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                class="filteredRoleRemoveSVG"
+              >
+                <path
+                  fill="#FFF"
+                  fill-rule="evenodd"
+                  d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </section> -->
+
+        <span class="clear">Clear</span>
+      </section>
+    </div>
+
+    <section class="enclosure">
+      <section class="container1">
+        <section class="job-filter-card card1">
+          <section class="job__card_container"></section>
+          <div class="job photosnap">
+            <div class="wrapperA">
+              <!-- <div class="company_logo"></div> -->
+              <img src="./images/photosnap.svg" alt="" class="company_logo" />
+              <div class="wrapper">
+                <div class="container-X">
+                  <h3 class="company_name">Photosnap</h3>
+                  <div class="container-Y">
+                    <h3 class="new">New!</h3>
+                    <h3 class="featured">Featured</h3>
+                  </div>
+                </div>
+
+                <h3
+                  class="role front_end senior html_lang css_lang javascript_lang"
+                >
+                  Senior Frontend Developer
+                </h3>
+                <ul class="container-W">
+                  <li class="days_ago">1d ago</li>
+                  <li class="job-type">Full Time</li>
+                  <li class="location">USA only</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="frontend_btn filterFrontEnd">Frontend</button>
+              <!-- Level -->
+              <button class="senior_btn filterSenior">Senior</button>
+              <!-- Languages -->
+              <button class="html_lang_btn filterHTML">HTML</button>
+              <button class="css_lang_btn filterCSS">CSS</button>
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+            </div>
+
+            <!-- Item End -->
+          </div>
+        </section>
+
+        <section class="job-filter-card card2">
+          <section class="job__card_container"></section>
+          <div class="job manage">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img src="./images/manage.svg" alt="" class="company_logo" />
+              <div class="wrapper">
+                <div class="container-X">
+                  <h3 class="company_name">Manage</h3>
+                  <div class="container-Y">
+                    <h3 class="new">New!</h3>
+                    <h3 class="featured">Featured</h3>
+                  </div>
+                </div>
+
+                <h3 class="role">Fullstack Developer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">1d ago</li>
+                  <li class="job-type">Part Time</li>
+                  <li class="location">Remote</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button
+                class="full_stack_btn"
+                onclick="addFilterChipCategory('Fullstack')"
+              >
+                Fullstack
+              </button>
+              <!-- Level -->
+              <button class="mid_weight_btn filterMidweight">Midweight</button>
+              <!-- Languages -->
+              <button class="python_btn filterPython">Python</button>
+              <!-- Tools -->
+              <button class="react_btn filterReact">React</button>
+            </div>
+
+            <!-- Item End -->
+          </div>
+        </section>
+
+        <section class="job-filter-card card3">
+          <section class="job__card_container"></section>
+          <div class="job account">
+            <div class="wrapperA">
+              <img src="./images/account.svg" alt="" class="company_logo" />
+              <!-- Item Start -->
+
+              <div class="wrapper">
+                <div class="container-X">
+                  <h3 class="company_name">Account</h3>
+                  <h3 class="new">New!</h3>
+                </div>
+                <h3 class="role front_end">Junior Frontend Developer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">2d ago</li>
+                  <li class="job-type">Part Time</li>
+                  <li class="location">USA only</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="frontend_btn filterFrontEnd">Frontend</button>
+              <!-- Level -->
+              <button class="junior_btn filterJunior">Junior</button>
+              <!-- Languages -->
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+              <!-- Tools -->
+              <button class="react_btn filterReact filterReact">React</button>
+              <button class="sass_btn filterSass">Sass</button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card4">
+          <section class="job__card_container"></section>
+          <div class="job myhome">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img src="./images/myhome.svg" alt="" class="company_logo" />
+              <div class="wrapper">
+                <h3 class="company_name">MyHome</h3>
+                <h3 class="role front_end">Junior Frontend Developer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">5d ago</li>
+                  <li class="job-type">Contract</li>
+                  <li class="location">USA only</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="frontend_btn filterFrontEnd">Frontend</button>
+              <!-- Level -->
+              <button class="junior_btn filterJunior">Junior</button>
+              <!-- Languages -->
+              <button class="css_lang_btn filterCSS">CSS</button>
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card5">
+          <section class="job__card_container"></section>
+          <div class="job loop-studios">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img
+                src="./images/loop-studios.svg"
+                alt=""
+                class="company_logo"
+              />
+              <div class="wrapper">
+                <h3 class="company_name">Loop Studios</h3>
+                <h3 class="role">Software Engineer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">1w ago</li>
+                  <li class="job-type">Full Time</li>
+                  <li class="location">Worldwide</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="full_stack_btn filterFullstack">Fullstack</button>
+              <!-- Level -->
+              <button class="mid_weight_btn filterMidweight">Midweight</button>
+              <!-- Languages -->
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+              <button class="ruby_btn filterRuby">Ruby</button>
+              <!-- Tools -->
+              <button class="sass_btn filterSass">Sass</button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card6">
+          <section class="job__card_container"></section>
+
+          <div class="job faceit">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img src="./images/faceit.svg" alt="" class="company_logo" />
+              <div class="wrapper">
+                <h3 class="company_name">FaceIt</h3>
+                <h3 class="role backend">Junior Backend Developer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">2w ago</li>
+                  <li class="job-type">Full Time</li>
+                  <li class="location">UK only</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="backend_btn filterBackend">Backend</button>
+              <!-- Level -->
+              <button class="junior_btn filterJunior">Junior</button>
+              <!-- Languages -->
+              <button class="ruby_btn filterRuby">Ruby</button>
+              <!-- Tools -->
+              <button class="ror_btn filterRoR">RoR</button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card7">
+          <section class="job__card_container"></section>
+          <div class="job shortly">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img src="./images/shortly.svg" alt="" class="company_logo" />
+
+              <div class="wrapper">
+                <h3 class="company_name">Shortly</h3>
+                <h3 class="role">Junior Developer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">2w ago</li>
+                  <li class="job-type">Full Time</li>
+                  <li class="location">Worldwide</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="frontend_btn filterFrontEnd">Frontend</button>
+              <!-- Level -->
+              <button class="junior_btn filterJunior">Junior</button>
+              <!-- Languages -->
+              <button class="html_lang_btn filterHTML">HTML</button>
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+              <!-- Tools -->
+              <button class="sass_btn filterSass">Sass</button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card8">
+          <section class="job__card_container"></section>
+
+          <div class="job insure">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img src="./images/insure.svg" alt="" class="company_logo" />
+              <div class="wrapper">
+                <h3 class="company_name">Insure</h3>
+                <h3 class="role front_end">Junior Frontend Developer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">2w ago</li>
+                  <li class="job-type">Full Time</li>
+                  <li class="location">USA only</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="frontend_btn filterFrontEnd">Frontend</button>
+              <!-- Level -->
+              <button class="junior_btn filterJunior">Junior</button>
+              <!-- Languages -->
+              <button class="javascript_lang_btn filterJunior">
+                JavaScript
+              </button>
+              <!-- Tools -->
+              <button class="vue_btn filterVue">Vue</button>
+              <button class="sass_btn filterSass">Sass</button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card9">
+          <section class="job__card_container"></section>
+          <div class="job eyecam-co">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img src="./images/eyecam-co.svg" alt="" class="company_logo" />
+              <div class="wrapper">
+                <h3 class="company_name">Eyecam Co.</h3>
+                <h3 class="role">Full Stack Engineer</h3>
+                <ul class="container-W">
+                  <li class="days_ago">3w ago</li>
+                  <li class="job-type">Full Time</li>
+                  <li class="location">Worldwide</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="full_stack_btn filterFullstack">Fullstack</button>
+              <!-- Level -->
+              <button class="mid_weight_btn filterMidweight">Midweight</button>
+              <!-- Languages -->
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+              <button class="python_btn filterPython">Python</button>
+              <!-- Tools -->
+              <button class="django_btn filterDjango">Django</button>
+              <!-- Item End -->
+            </div>
+          </div>
+        </section>
+
+        <section class="job-filter-card card10">
+          <section class="job__card_container"></section>
+          <div class="job the-air-filter-company">
+            <div class="wrapperA">
+              <!-- Item Start -->
+              <img
+                src="./images/the-air-filter-company.svg"
+                alt=""
+                class="company_logo"
+              />
+              <div class="wrapper">
+                <h3 class="company_name">The Air Filter Company</h3>
+                <h3 class="role">Front-end Dev</h3>
+                <ul class="container-W">
+                  <li class="days_ago">1mo ago</li>
+                  <li class="job-type">Part Time</li>
+                  <li class="location">Worldwide</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            <div class="roles">
+              <!-- Role -->
+              <button class="frontend_btn filterFrontEnd">Frontend</button>
+              <!-- Level -->
+              <button class="junior_btn filterJunior">Junior</button>
+              <!-- Languages -->
+              <button class="javascript_lang_btn filterJavaScript">
+                JavaScript
+              </button>
+              <!-- Tools -->
+              <button class="react_btn filterReact">React</button>
+              <button class="sass_btn filterSass">Sass</button>
+              <!-- Item End -->
+            </div>
+          </div>
+
+          <!-- <section class="jobs">
+                    
+                  </section> -->
+        </section>
+      </section>
+    </section>
+    <!-- <script src="app.js"></script> -->
+    <script src="script.js"></script>
+  </body>
+</html>
